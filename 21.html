@@ -1,0 +1,57 @@
+<?php 
+$temp_array=range(31,45); 
+$tot_temp = 0; 
+$count = count($temp_array); 
+echo "Total temp values are: ".$count; 
+foreach($temp_array as $temp) 
+{ 
+$tot_temp += $temp; 
+} 
+$avg_high_temp = $tot_temp/$count; 
+echo "<br> Average Temperature is : ".$avg_high_temp." 
+"; 
+sort($temp_array); 
+echo " <br> List of five lowest temperatures :"; 
+$res1= array_slice($temp_array,0,5); 
+foreach($res1 as $high_temp) 
+{ 
+echo "<br> $high_temp"; 
+} 
+echo "<br> List of five highest temperatures :"; 
+$res1= array_slice($temp_array,10); 
+foreach($res1 as $high_temp) 
+{ 
+echo "<br> $high_temp"; 
+} 
+?> 
+
+<!--Q.2 A) Import dataset “iris.csv”. Write a Python program to create a Bar plot to get the frequency of the three species of the Iris data.-->
+import pandas as p
+ import matplotlib.pyplot as plt
+ d=p.read_csv('C:\\Users\\DELL\\Untitled Folder\\Iris.csv')
+ d[d.Species=='Iris-setosa'].plot.bar(x='PetalLengthCm',y='PetalWidthCm',color='orange',
+ label='Setosa')
+ d[d.Species=='Iris-versicolor'].plot.bar(x='PetalLengthCm',y='PetalWidthCm',color='blue',
+ label='versicolor')
+ d[d.Species=='Iris-virginica'].plot.bar(x='PetalLengthCm',y='PetalWidthCm',color='green',
+ label='virginica')
+ fig.set_xlabel("Petal Length")
+ fig.set_ylabel("Petal Width")
+ fig.set_title(" Petal Length VS Petal Width")
+ #fig=plt.gcf()
+ #fig.set_size_inches(12,8)
+ plt.show()
+
+ <!--Q.2 B)Write a Python program to create a histogram of the three species of the Iris data. [5]-->
+ import pandas as pd
+ import matplotlib.pyplot as plt
+ import seaborn as sns
+ iris=pd.read_csv("iris.csv")
+ fig,ax=plt.subplots()
+ x_index=3
+ colors=['blue','red','green']
+ for label,color in zip(range(len(iris.target_names)),color):
+ ax.hist(iris.data[iris.target==label,x_index],label=iris.target_names[label],color=color)
+ ax.set_xlabel(iris.feature_names[x_index])
+ ax.legend(loc='upperÂ right')
+ plt.show()

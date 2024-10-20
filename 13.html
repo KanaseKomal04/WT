@@ -1,0 +1,78 @@
+<html> 
+<head> 
+<head><title>NRC ChessBoard</title> 
+<style> 
+.clr1 
+{ 
+ background-color:black; 
+} 
+.clr2 
+{ 
+ background-color:white; 
+} 
+table 
+{ 
+ width:100%; 
+ height:100%; 
+} 
+</style> 
+<?php 
+echo"<table border=1>"; 
+for($i=1;$i<=8;$i++) 
+{ 
+ echo"<tr>"; 
+ if($i%2==0) 
+ { 
+  for($j=1;$j<=8;$j++) 
+  { 
+   if($j%2==1) 
+    echo"<td class=clr2></td>"; 
+   else 
+    echo"<td class=clr1></td>"; 
+  } 
+ } 
+ else 
+ { 
+  for($j=0;$j<8;$j++) 
+  { 
+   if($j%2==0) 
+    echo"<td class=clr1></td>"; 
+   else 
+    echo"<td class=clr2></td>"; 
+  }
+} 
+echo "</tr>"; 
+} 
+echo"</table>" ;     
+?> 
+</html>
+
+<!--Q.2 A) Write a Python program to create a graph to find relationship between the petal length
+and petal width.(Use iris.csv dataset) [10]-->
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+iris=pd.read_csv("/home/pc256/TYBCS-(sem-I)DS/Assignment4/iris.csv")
+fig=iris[iris.Species=='Iris-setosa'].plot.scatter(x='PetalLengthCm',y='PetalWidthCm',color='orang
+e',label='Setosa')
+iris[iris.Species=='Iris-versicolor'].plot.scatter(x='PetalLengthCm',y='PetalWidthCm',color='blue',l
+abel='versicolor',ax=fig)
+iris[iris.Species=='Iris-virginica'].plot.scatter(x='PetalLengthCm',y='PetalWidthCm',color='green',l
+ abel='virginica',ax=fig)
+ fig.set_xlabel("PetalÂ Length")
+ fig.set_ylabel("PetalÂ Width")
+ fig.set_title("Â PetalÂ LengthÂ VSÂ Width")
+ fig=plt.gcf()
+ fig.set_size_inches(12,8)
+ plt.show()
+
+ <!--B) Write a Python program to find the maximum and minimum value of a given flattened
+ array.[5]-->
+ import numpy as np
+ a =np.arange(4).reshape((2,2))
+ print("Original flattened array:")
+ print(a)
+ print("Maximum value of the above flattened array:")
+ print(np.amax(a))
+ print("Minimum value of the above flattened array:")
+ print(np.amin(a))

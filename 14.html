@@ -1,0 +1,36 @@
+<html> 
+<head> 
+<link rel="stylesheet" href="bootstrap.min.css"> 
+</head> 
+<body> 
+<div class=container> 
+<div class="row bg-light" > 
+<div class="col-4">col1 
+</div> 
+<div class="col-4">col2 
+</div> 
+<div class="col-4">col3 
+</div> 
+</div> 
+</div> 
+</body> 
+</html> 
+
+<!--Q.2 A) Write a pthon numpy program compute the weighted average along the specified excess
+of a given flattened arra. [10]-->
+import numpy as np
+array = np.arange(5)
+print(array)
+weights = np.arange(10, 15)
+print(weights)
+res1 = np.average(array, weights=weights)
+print(res1)
+
+<!--B)Write a Python program to view basic statistical details of the data (Use Heights and
+Weights Dataset) [5]-->
+import pandas as p
+df = pd.read_csv('C:\\Users\\DELL\\Advertising.csv')
+df.shape
+df.describe()
+df.info()
+df.dtypes

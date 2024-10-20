@@ -1,0 +1,61 @@
+
+<html lang="en"> 
+<head> 
+    <title>Document</title> 
+</head> 
+<body> 
+ <form action="slip25.php" method="get"> 
+    Enter File name to read <input type="text" name="fname1"><br> 
+    <input type="radio" name="op" value="1">Display Type of File<br> 
+    <input type="radio" name="op" value="2">Display Modification Time<br> 
+    <input type="radio" name="op" value="3">Display File Size<br> 
+    <input type="radio" name="op" value="4">Delete File<br> 
+    <input type="submit" value="Copy"> 
+</form> 
+</body> 
+</html> 
+
+<!--PHP FILE-->
+<?php 
+ 
+$fp=$_GET['fname1']; 
+$op=$_GET['op']; 
+switch($op) 
+{ 
+    case 1: 
+            echo basename($fp); 
+            break; 
+    case 2: $mtime=stat($fp); 
+            echo Date("d/M/Y h:m:s",$mtime['mtime']); 
+            break; 
+    case 3:echo filesize($fp); 
+            break; 
+    case 4:unlink($fp); 
+            echo "File deleted"; 
+            break; 
+} 
+?>
+
+<!--Q.2 A)Generate a random array of 50 integers and display them using a line chart, scatter plot,
+histogram and box plot.Apply appropriate color, labels and styling options. [10]-->
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+
+<!--Q.2 B)Create two lists, one representing subject names and the other representing marks
+obtained in those subjects.Display the data in a pie chart. [5]-->
+import numpy as np
+import matplotlib.pyplot as plts_name=['OS','DS','PHP']
+marks=[40,50,70]
+#plt.pie(s_name,labels=marks)
+plt.bar(s_name,marks)
+plt.show()

@@ -1,0 +1,55 @@
+<html> 
+<body> 
+<table border = 1> 
+<caption>list of book </caption> 
+<tr> 
+<td rowspan=2>item no </td> 
+<td rowspan=2>Item name </td> 
+<td colspan=2 > price  
+<tr> 
+<td >Rs </td> 
+<td >paise</td> 
+</td> 
+</tr> 
+</tr> 
+<tr> 
+<td>1</td> 
+<td>programming in python </td> 
+<td>500</td><td>50</td> 
+</tr> 
+<tr> 
+<td>2</td> 
+<td>programming in java </td> 
+<td>345</td><td>00</td> 
+</tr> 
+</body> 
+</html>
+
+<!--Q.2 A)Generate a random array of 50 integers and display them using a line chart, scatter plot,
+histogram and box plot.Apply appropriate color, labels and styling options. [10]-->
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+ plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+ plt.show()
+
+ <!--Q.2 B)Write a Python program to print the shape, number of rows-columns, data types, feature
+ names and the description of the data(Use User_Data.csv) [5]-->
+ 
+ import numpy as np
+ import pandas as pd
+ df = pd.read_csv('/home/pc256/TYBCS-(sem-I)DS/Iris.csv')
+ #print(df.head(6))
+ print('shape of CSV')
+ print(df.shape)
+ print('Data types')
+ print(df.dtypes)
+ print('Description of CSV')
+ print(df.describe())

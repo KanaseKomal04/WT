@@ -1,0 +1,54 @@
+HTML FILE 
+<html lang="en"> 
+<head> 
+    <title>NRC File Handling</title> 
+</head> 
+<body> 
+ <form action="slip24.php" method="get"> 
+    Enter File name to read <input type="text" name="fname1"> 
+    Enter File name to write <input type="text" name="fname2"> 
+    <input type="submit" value="Copy"> 
+     
+</form>    
+</body> 
+</html> 
+
+<!--PHP FILE -->
+<?php 
+ 
+$fname1=$_GET['fname1']; 
+$fname2=$_GET['fname2']; 
+$fp1=fopen($fname1,"r"); 
+$fp2=fopen($fname2,"a"); 
+ 
+$size=filesize($fname1); 
+ 
+$str=fread($fp1,$size);
+fwrite($fp2,$str,$size); 
+echo "Append Successfull"; 
+?>
+
+<!--Q.2 A) Import dataset “iris.csv”. Write a Python program to create a Bar plot to get the
+frequency of the three species of the Iris data. [10]-->
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+iris =pd.read_csv('/home/pc256/Iris.csv')
+ax=plt.subplots(1,1,figsize=(10,8))
+sns.countplot('Species',data=iris)
+plt.title("Iris Species Count")
+plt.show()
+
+<!--Q.2 B) Write a Python program to create a histogram of the three species of the Iris data. [5]-->
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+iris=pd.read_csv("iris.csv")
+fig,ax=plt.subplots()
+x_index=3
+colors=['blue','red','green']
+for label,color in zip(range(len(iris.target_names)),color):
+ax.hist(iris.data[iris.target==label,x_index],label=iris.target_names[label],color=color)
+ax.set_xlabel(iris.feature_names[x_index])
+ax.legend(loc='upperÂ right')
+plt.show()

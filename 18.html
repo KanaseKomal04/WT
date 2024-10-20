@@ -1,0 +1,74 @@
+HTML FILE 
+<html> 
+<head> 
+<title> String operations </title> 
+<body> 
+<form name = "String" action = "s18_q1.php" method = "get"> 
+<h2> Select Operations</h2> 
+<input type = "radio" name ="s" value=1>Reverse the order</br></br> 
+<input type = "radio" name ="s" value=2>Traverse the element</br></br> 
+<input type = "radio" name ="s" value=3>Convert the array elements</br></br> 
+<input type = "radio" name ="s" value=4>Display the elements of an array along with 
+key.</br></br> 
+<input type=submit value=send> 
+</body> 
+</html> 
+
+<!--PHP FILE -->
+<?php 
+$a = array("a"=>1,"b"=>21,"c"=> 56); 
+switch($_GET['s'])  
+{ 
+case 1: 
+echo "Orginal Array is <br>"; 
+print_r($a); 
+echo "reverse Array is <br>"; 
+$c =array_reverse($a); 
+print_r($c); 
+break; 
+case 2: 
+echo "Orginal Array is <br>"; 
+print_r($a); 
+echo "traversing Array is <br>"; 
+foreach($a as $v) 
+echo "$v<br>"; 
+break; 
+case 3: 
+echo " Original array is<br>"; 
+print_r($a); 
+echo "elements into individual variables<br>"; 
+$e = extract($a); 
+print_r($e); 
+break; 
+case 4: 
+echo " Original array is<br>"; 
+print_r($a); 
+echo "key value pair is<br>"; 
+foreach ($a as $k=>$v) 
+{ 
+print_r("$k=>$v"); 
+echo"<br>"; 
+} 
+break; 
+default: 
+echo "Invalid choice!!"; 
+} 
+?>
+
+<!--Q.2 A)WRITE A PYTHON PROGRAMTOCREATEABOXPLOTSTOSEEHOWEACH
+FEATURE THAT IS SEPAL LENGTH,SEPAL WIDRH,PETAL LENGTH AND
+WIDTH AREDISTRIBUTED ACROSS THE THREESPECIES. [10]-->
+import pandas as p
+d=p.read_csv('C:\\Users\\DELL\\Untitled Folder\\Iris.csv')
+new_data = d[["SepalLengthCm", "SepalWidthCm", "PetalLengthCm", "PetalWidthCm"]]
+print(new_data)
+plt.figure(figsize = (10, 7))
+new_data.boxplot()
+
+<!--B) USE THEHEIGHT ANDWEIGHTSDATASETANDLOADTHEDATASETFROMAGIVEN CSV FILE INTO A DATAFRAME.PRINT
+THE FIRST,LAST 5 ROWS AND RANDOM10ROW-->
+import pandas as p
+df = pd.read_csv('C:\\Users\\DELL\\ht&wt.csv')
+print(df.head(5))
+print(df.tail(5))
+print(df.sample(10))

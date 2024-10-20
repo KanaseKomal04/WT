@@ -1,0 +1,58 @@
+<html lang="en"> 
+<head> 
+  <title>NR Class</title> 
+    <link rel="stylesheet" href="bootstrap.min.css"> 
+     
+</head> 
+<body> 
+    <div class="jumbotron"> 
+        <center><h1>My First Bootstrap Page</h1></center> 
+        <center><p>This is responsive</p></center> 
+    </div> 
+    <div class="row"> 
+        <div class="col-3 offset-1 bg-light"> 
+            <h4>Personal Information</h4> 
+            <p>name</p> 
+        </div> 
+        <div class="col-3 offset-1 bg-light"> 
+            <h4>Educational Information</h4> 
+            <p>name</p> 
+        </div> 
+         
+        <div class="col-3 offset-1 bg-light"> 
+            <h4>Job Profile</h4> 
+            <p>name</p> 
+        </div> 
+    </div> 
+</body> 
+</html>
+
+<!--Q.2 A)Generate a random array of 50 integers and display them using a line chart, scatter plot,
+histogram and box plot.Apply appropriate color, labels and styling options. [10]-->
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show()
+
+<!--Q.2 B)Generate a random array of 50 integers and display them using a line chart, scatter plot,
+histogram and box plot.Apply appropriate color, labels and styling options. [5]-->
+import numpy as np
+import matplotlib.pyplot as plt
+ x=np.random.randn(50)
+ y=np.random.randn(50)
+ plt.plot(x,y)
+ plt.scatter(x,y)
+ plt.hist(x)
+ plt.boxplot(x, vert=True)
+ #plt.show()
+ plt.scatter(x, y, s=110, c = 'red', marker ='*')
+ plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+ plt.show()

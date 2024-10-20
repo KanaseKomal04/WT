@@ -1,0 +1,78 @@
+<!--PHP FILE-->
+<?php 
+$x=$_POST['s1']; 
+$y=$_POST['s2']; 
+$op=$_POST['op'];  
+ 
+ function add($x=4,$y=2) 
+    { 
+   
+    $result=$x+$y; 
+    echo"adition is $result"; 
+    } 
+ function sub($x=4,$y=2) 
+    { 
+     
+    $result=$x-$y; 
+    echo"subtraction is $result"; 
+    } 
+switch ($op) 
+{ 
+case"1": add($x,$y); 
+         break; 
+case"2": sub($x,$y);   
+         break; 
+} 
+?> 
+
+<!--HTML FILE -->
+<html> 
+<body> 
+<form action="slip12in.php"method="POST"> 
+first number 
+<input type=text name=s2><br> 
+second number 
+<input type=text name=s1><br> 
+chose opration from below<br> 
+addition 
+<input type=radio value="1" name=op> <br> 
+subtraction 
+<input type=radio value="2"name=op> <br> 
+<input type= submit value="submit"><br> 
+</body> 
+</html> 
+ 
+<!--PHP FILE -->
+<?php 
+include'slip12.php'; 
+?> 
+
+<!--Q2A)Generate a random array of 50 integers and display them using a line chart, scatter plot,
+histogram and box plot.Apply appropriate color, labels and styling options. [10]-->
+import numpy as np
+import matplotlib.pyplot as plt
+x=np.random.randn(50)
+y=np.random.randn(50)
+plt.plot(x,y)
+plt.scatter(x,y)
+plt.hist(x)
+plt.boxplot(x, vert=True)
+#plt.show()
+plt.scatter(x, y, s=110, c = 'red', marker ='*')
+plt.hist(x, facecolor ='y',linewidth=2,edgecolor='k')
+plt.show() 
+
+<!--Q2B) B) Write a Python program to create data frame containing column name, salary, department
+ add 10 rows with some missing and duplicate values to the data frame. Also drop all null and empty values. Print the modified data frame.[5]-->
+ import pandas as pd
+ df = pd.DataFrame(columns = ['name','age','Per'])
+ df.loc[0] = ['Rohit', 10000, comp]
+ df.loc[1] = ['Ajinkya',10000, IT]
+ df.loc[2] = ['none', none, None]
+ df.loc[3] = ['PQR', 30000, CHEM]
+ print(df)
+ df["remark"] = None
+ print(df)
+ df.drop(columns='remark', axis=1, inplace=True)
+ print(df)
+ print(df.dropna())

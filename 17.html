@@ -1,0 +1,41 @@
+<?php 
+$a = array("Sagar"=>"31","Vicky"=>"41","Leena"=>"39","Ramesh"=>"40"); 
+echo "sorting in ascending order by value<br>"; 
+asort($a); 
+print_r($a); 
+echo "sorting in ascending order by key<br>"; 
+ksort($a); 
+print_r($a); 
+echo "sorting in decending order by value<br>"; 
+arsort($a); 
+print_r($a); 
+echo "sorting in decending order by key<br>"; 
+krsort($a); 
+print_r($a); 
+?> 
+
+<!--Q.2 A)Write a Python program to draw scatter plots to compare two features of the iris dataset
+[10]-->
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn import preprocessing
+iris = pd.read_csv("iris.csv")
+iris = iris.drop('Id',axis=1)
+le = preprocessing.LabelEncoder()
+iris.Species = le.fit_transform(iris.Species)
+x = iris.iloc[:, :-1].values
+y = iris.iloc[:, 4].values
+plt.scatter(x[:,0], x[:, 3], c=y, cmap ='flag')
+plt.xlabel('Sepal Length cm')
+plt.ylabel('Petal Width cm')
+plt.show()
+
+<!--Q2 B)Write a Python program to create a data frame containing columns name, age , salary,
+department .Add 10 rows to the data frame. View the data frame.[5]-->
+import pandas as pd
+df = pd.DataFrame(columns = ['name','age','Per'])
+df.loc[0] = ['Rohit', 5, 85]
+df.loc[1] = ['Ajinkya',10, 75]
+df.loc[2] = ['XYZ', 20, 2019]
+df.loc[3] = ['PQR', 30, 2015]
+ print(df)
